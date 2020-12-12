@@ -151,7 +151,7 @@ if deb
     its('groups') { should include 'mongodb' }
     # All versions of Debian 10 will use /usr/sbin/nologin for service
     # account shells
-    its('shell') {
+    its('shell') do
       if ((os[:name] == 'debian' and os[:release].split('.')[0] == '10') or
           (os[:name] == 'ubuntu' and os[:release] == '18.04') or
           (os[:name] == 'ubuntu' and os[:release] == '20.04'))
@@ -159,7 +159,7 @@ if deb
       else
         should eq '/bin/false'
       end
-    }
+    end
   end
 end
 
